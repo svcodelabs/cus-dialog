@@ -12,7 +12,7 @@ Add following code in project level gradle file
 Add following code in app level gradle file
 
 	dependencies {
-	        implementation 'com.github.svcodelabs:cus-dialog:Tag'
+	        implementation 'com.github.svcodelabs:cus-dialog:2.26'
 	}
 
 Usage:
