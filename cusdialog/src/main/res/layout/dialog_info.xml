@@ -14,7 +14,6 @@
             android:orientation="vertical">
 
         <LinearLayout
-                android:id="@+id/head_lyt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorInfo"
@@ -67,10 +66,11 @@
 
             <com.google.android.material.button.MaterialButton
                     android:id="@+id/bt_positive"
-                    style="@style/Widget.MaterialComponents.Button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/GOT_IT"
+                    app:rippleColor="@color/overlay_dark_10"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textStyle="bold"/>
 

@@ -14,7 +14,6 @@
             android:orientation="vertical">
 
         <LinearLayout
-                android:id="@+id/dialog_head_lyt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/colorWarning"
@@ -66,24 +65,25 @@
 
             <com.google.android.material.button.MaterialButton
                     android:id="@+id/bt_negative"
-                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/CANCEL"
                     android:layout_marginEnd="@dimen/spacing_medium"
+                    app:rippleColor="@color/overlay_dark_10"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
                     android:textColor="@color/grey_80"
                     android:textStyle="bold"/>
 
             <com.google.android.material.button.MaterialButton
                     android:id="@+id/bt_positive"
-                    style="@style/Widget.MaterialComponents.Button"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/OK"
                     android:layout_marginStart="@dimen/spacing_medium"
+                    app:rippleColor="@color/overlay_dark_10"
                     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
-                    android:textColor="@color/white"
                     android:textStyle="bold"/>
 
         </LinearLayout>

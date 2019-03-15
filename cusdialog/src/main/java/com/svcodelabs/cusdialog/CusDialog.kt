@@ -55,25 +55,20 @@ class CusDialog(private val context: Context) {
 
 
     fun InfoDialog(@StringRes title: Int, @StringRes content: Int, @StringRes bt_text_pos: Int,
-                   @ColorRes headColor: Int,
                    @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
         return InfoDialog(context.getString(title), context.getString(content),
-            context.getString(bt_text_pos), icon, headColor, callback)
+            context.getString(bt_text_pos), icon, callback)
     }
 
     // dialog info
     fun InfoDialog(title: String, content: String, bt_text_pos: String,
-                   @DrawableRes icon: Int, @ColorRes headColor: Int,
-                   callback: CallbackDialog): Dialog {
+                   @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
         val dialog = buildDialogView(R.layout.dialog_info)
 
         (dialog.findViewById<View>(R.id.title) as TextView).text = title
         (dialog.findViewById<View>(R.id.content) as TextView).text = content
         (dialog.findViewById<View>(R.id.bt_positive) as Button).text = bt_text_pos
         (dialog.findViewById<View>(R.id.icon) as ImageView).setImageResource(icon)
-
-        (dialog.findViewById<LinearLayout>(R.id.head_lyt)
-            .setBackgroundColor(context.resources.getColor(headColor, context.theme)))
 
         (dialog.findViewById<View>(R.id.bt_positive) as Button).setOnClickListener {
             callback.onPositiveClick(dialog)
@@ -82,8 +77,7 @@ class CusDialog(private val context: Context) {
     }
 
     fun WarningDialog(@StringRes title: Int, @StringRes content: Int, @StringRes bt_text_pos: Int,
-                      @StringRes bt_text_neg: Int, @ColorRes headColor: Int,
-                      @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
+                      @StringRes bt_text_neg: Int, @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
         var _title: String? = null
         var _content: String? = null
         var _bt_text_neg: String? = null
@@ -92,25 +86,23 @@ class CusDialog(private val context: Context) {
         if (content != -1) _content = context.getString(content)
         if (bt_text_neg != -1) _bt_text_neg = context.getString(bt_text_neg)
 
-        return WarningDialog(_title, _content, context.getString(bt_text_pos), _bt_text_neg, headColor,
-            icon, callback)
+        return WarningDialog(_title, _content, context.getString(bt_text_pos), _bt_text_neg, icon, callback)
     }
 
     fun WarningDialog(@StringRes title: Int, @StringRes content: Int, @StringRes bt_text_pos: Int,
-                      @ColorRes headColor: Int, @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
+                      @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
         var _title: String? = null
         var _content: String? = null
 
         if (title != -1) _title = context.getString(title)
         if (content != -1) _content = context.getString(content)
 
-        return WarningDialog(_title, _content, context.getString(bt_text_pos), null, headColor,
+        return WarningDialog(_title, _content, context.getString(bt_text_pos), null,
             icon, callback)
     }
 
     // dialog warning
     fun WarningDialog(title: String?, content: String?, bt_text_pos: String, bt_text_neg: String?,
-                      @ColorRes headColor: Int,
                       @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
         val dialog = buildDialogView(R.layout.dialog_warning)
 
@@ -134,8 +126,6 @@ class CusDialog(private val context: Context) {
             (dialog.findViewById<View>(R.id.bt_negative) as Button).visibility = View.GONE
         }
         (dialog.findViewById<View>(R.id.icon) as ImageView).setImageResource(icon)
-        (dialog.findViewById<LinearLayout>(R.id.dialog_head_lyt)
-            .setBackgroundColor(context.resources.getColor(headColor, context.theme)))
 
         (dialog.findViewById<View>(R.id.bt_positive) as Button).setOnClickListener {
             callback.onPositiveClick(dialog)
