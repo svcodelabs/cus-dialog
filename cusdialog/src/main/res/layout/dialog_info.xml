@@ -58,8 +58,9 @@
             android:paddingLeft="@dimen/spacing_large"
             android:paddingRight="@dimen/spacing_large">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
                 android:id="@+id/bt_positive"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/GOT_IT"
