@@ -27,32 +27,8 @@ class CusDialog(private val context: Context) {
         dialog.setCancelable(false)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
-//        val lp = WindowManager.LayoutParams()
-//        lp.copyFrom(dialog.window!!.attributes)
-//        lp.width = WindowManager.LayoutParams.WRAP_CONTENT
-//        lp.height = WindowManager.LayoutParams.WRAP_CONTENT
-//        dialog.window!!.attributes = lp
-
         return dialog
     }
-
-    fun progressDialog(): Dialog {
-        val dialog = buildDialogView(R.layout.dialog_layout)
-
-        val avd = AnimatedVectorDrawableCompat.create(context, R.drawable.avd_dialog_img)
-        val iv = (dialog.findViewById<ImageView>(R.id.img)).apply {
-            setImageDrawable(avd)
-        }
-        avd?.registerAnimationCallback(object : Animatable2Compat.AnimationCallback() {
-            override fun onAnimationEnd(drawable: Drawable?) {
-                iv.post { avd.start() }
-            }
-        })
-        avd?.start()
-
-        return dialog
-    }
-
 
     fun InfoDialog(@StringRes title: Int, @StringRes content: Int, @StringRes bt_text_pos: Int,
                    @DrawableRes icon: Int, callback: CallbackDialog): Dialog {
